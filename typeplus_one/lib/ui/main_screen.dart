@@ -9,8 +9,6 @@ class MainScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final hotkeyState = ref.watch(hotkeyProvider);
-
     return Scaffold(
       body: Row(
         children: [
@@ -19,10 +17,7 @@ class MainScreen extends ConsumerWidget {
             child: Column(
               children: [
                 const SearchBarWidget(),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text('Keys: $hotkeyState'),
-                ),
+                Padding(padding: const EdgeInsets.all(8.0), child: Text('')),
                 const Expanded(child: Placeholder()), // Main content area
               ],
             ),

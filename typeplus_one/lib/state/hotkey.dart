@@ -1,6 +1,13 @@
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+// DATA
+final Set<LogicalKeyboardKey> modeChangeModifier = {
+  LogicalKeyboardKey.metaLeft,
+  LogicalKeyboardKey.shiftLeft,
+};
+
+// LOGIC
 final hotkeyProvider =
     StateNotifierProvider<HotkeyNotifier, Set<LogicalKeyboardKey>>(
       (ref) => HotkeyNotifier(),
@@ -54,4 +61,9 @@ class HotkeyNotifier extends StateNotifier<Set<LogicalKeyboardKey>> {
     HardwareKeyboard.instance.removeHandler(_handleKeyEvent);
     super.dispose();
   }
+}
+
+// UTILS
+bool isHotkeyActive(state, Set<LogicalKeyboardKey> keys) {
+  return keys.every((key) => state.contains(key));
 }
