@@ -5,6 +5,7 @@ import 'package:typeplus_one/services/worker.dart';
 import 'package:typeplus_one/state/modifier_keys.dart';
 import 'package:typeplus_one/ui/side_pane.dart';
 import 'package:typeplus_one/ui/search_bar.dart';
+import 'package:typeplus_one/themes.dart';
 
 void main() {
   runApp(const ProviderScope(child: TypePlusApp()));
